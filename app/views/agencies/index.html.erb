@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Agencies</h1>
+<h1>Our Agencies</h1>
+
+<section class="container search">
+  <form class="navbar-form" role="search">
+    <div class="form-group">
+      <input type="text" name="search" value="<%= @search %>" class="form-control" placeholder="Search">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="reset"  class="btn btn-warning"
+            onclick="window.location.href='<%= agencies_path %>'">Reset</button>
+  </form>
+</section>
 
 <table>
   <thead>
@@ -21,13 +32,7 @@
         <td><%= agency.city %></td>
         <td><%= agency.state %></td>
         <td><%= link_to 'Show', agency %></td>
-        <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
-        <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Agency', new_agency_path %>
