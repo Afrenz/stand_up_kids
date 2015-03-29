@@ -9,13 +9,14 @@ class ChildrenController < ApplicationController
   # GET /children/1
   def show
     @active = 'children'
-    @child  = Child.find(param[:id].to_i)
+    @child  = Child.find(params[:id].to_i)
   end
 
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def child_params
-      params.require(:child).permit(:first_name, :last_name, :age, :sex, :bio)
+      params.require(:child).permit(:first_name, :last_name, :age, :sex, :bio, 
+                                    :agency_id)
     end
 end
