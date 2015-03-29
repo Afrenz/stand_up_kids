@@ -3,7 +3,12 @@ class AgenciesController < ApplicationController
   # GET /agencies
   def index
     @agencies = Agency.all
-  end
+    @search = params[:search]
+    if @search && @search.length > 0
+      else
+        @agencies = Agency.all
+      end
+    end
 
   # GET /agencies/1
   def show
@@ -17,4 +22,6 @@ class AgenciesController < ApplicationController
     def agency_params
       params.require(:agency).permit(:name, :email, :city, :state)
     end
-end
+  end
+  
+
